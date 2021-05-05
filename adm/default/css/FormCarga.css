@@ -1,0 +1,29 @@
+#peso_bruto-element, #peso_bruto-label{
+ display: none;   
+}
+#peso_tara-element, #peso_tara-label{
+ display: none;   
+}
+/*#peso_bruto, #caminhao{
+    width: 560px;
+    float: left;
+}
+
+#peso_tara{
+    width: 560px;
+    float: left;
+}
+
+#categoria, #caminhao{
+    width: 585px;
+    float: left;
+}
+
+
+#peso_bruto-element .btincluir{
+    margin-top: 4px;
+}
+
+#peso_tara-element .btincluir{
+    margin-top: 4px;
+}*/

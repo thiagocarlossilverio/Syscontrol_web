@@ -1,0 +1,96 @@
+<div id="mensagem" title="Notificação"></div>
+<div class="row">
+   <div class="col-md-12">
+      <!-- Form Elements -->
+      <div class="panel panel-primary">
+         <div class="panel-heading">
+            <h3 class="panel-title">LOGS DO SISTEMA</h3>
+         </div>
+         <div id="page-inner">
+            <div class="row">
+             
+            </div>
+             <? if($this->dados_registro){ ?> 
+             <!-----------BLOCO DE  PEDIDOS NO SITE-------------------------------------------------->
+            <div class="col-md-12 col-sm-12 col-xs-12">
+               <div class="chat-panel panel panel-default chat-boder chat-panel-head">
+                  <div class="panel-heading">
+                     <i class="fa fa-archive"></i>
+                     <stron>AÇÕES SISTEMA</stron> - TOTAL: <?=count($this->dados_registro);?><br>
+                  <div class="panel-body">
+                     <ul class="chat-box">
+                        <?php foreach ($this->dados_registro as $log) {?>
+                        <li>
+                      
+                           <div class="chat-body">
+                              <strong>Ação: <?= $log['action']; ?></strong>
+                              <small class="pull-right text-muted">
+                              <i class="fa fa-clock-o fa-fw"></i><?= $this->ConvercaoDate('-', $log['data'], 7); ?>
+                              </small>                                      
+                              <br><strong>Usuario: <?= $log['user']; ?></strong>
+                            
+                              <div class="row">
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                  <strong>Parametros:</strong> <?=$log["parametros"]; ?>
+                                </div>
+                              </div>
+                             
+                           </div>
+                       
+                        </li>
+                        <? } ?>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <?}?>
+             
+         <? if($this->dados_erros){ ?>    
+         <div class="col-md-12 col-sm-12 col-xs-12">
+               <div class="chat-panel panel panel-default chat-boder chat-panel-head">
+                  <div class="panel-heading">
+                     <i class="fa fa-archive"></i>
+                     <stron>ERROS SITE</stron> - TOTAL: <?=count($this->dados_erros);?><br>
+                  <div class="panel-body">
+                     <ul class="chat-box">
+                        <?php foreach ($this->dados_erros as $log) {?>
+                        <li>
+                      
+                           <div class="chat-body">
+                              <small class="pull-right text-muted">
+                              <i class="fa fa-clock-o fa-fw"></i><?= $this->ConvercaoDate('-', $log['data_execucao'], 7); ?>
+                              </small> 
+                               <strong>IP: </strong><?= $log['ip']; ?>
+                                                         
+                              <div class="row">
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                  <strong>Mensagem:</strong> <?=$log["mensagem"]; ?>
+                                </div>
+                              </div>
+                              
+                              <div class="row">
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                  <strong>Parametros:</strong> <?= $log["parametros"]; ?>
+                                </div>
+                              </div>
+                               
+                               <div class="row">
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                  <strong>Parametros de Acessos:</strong> <?= $log["parametros_acesso"]; ?>
+                                </div>
+                              </div>
+                             
+                           </div>
+                       
+                        </li>
+                        <? } ?>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <? } ?>
+      </div>
+   </div>
+</div>

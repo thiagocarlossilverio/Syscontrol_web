@@ -1,0 +1,43 @@
+<html lang="pt">
+    <? if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != "xmlhttprequest") { ?>
+        <head>
+            <meta charset="utf-8">
+            <title>Login | Painel Administrativo</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <?= $this->headLink()->appendStylesheet($this->BaseUrl('adm/default/css/bootstrap.css')); ?>
+            <?= $this->headLink()->appendStylesheet($this->BaseUrl('adm/default/css/login.css')); ?>
+            <?= $this->headLink()->appendStylesheet($this->BaseUrl('adm/default/css/msg.css')); ?>
+            <?= $this->headScript()->appendFile($this->BaseUrl('adm/default/js/jquery1.7.2.min.js')); ?>
+            <?= $this->headScript()->appendFile($this->BaseUrl('adm/default/js/bootstrap.min.js')); ?>
+            <?= $this->headScript()->appendFile($this->BaseUrl('adm/default/js/msg.js')); ?>
+        </head>
+    <? } else { ?>
+        <?= $this->headLink()->appendStylesheet($this->BaseUrl('adm/default/css/login.css')); ?>
+        <?= $this->headLink()->appendStylesheet($this->BaseUrl('adm/default/css/msg.css')); ?>
+    <? } ?>
+    <body>
+        <!--        <div class="container">         -->
+        <div class="card card-container">
+            <div id="logo"></div>
+            <img id="profile-img" class="profile-img-card" src="<?= $this->BaseUrl('adm/default/img/avatar_2x.png'); ?>">
+            <p  style="font-size: 22px; color: #ccc9c9;text-align: center;">SysControl</p>
+            <p  style="font-size: 16px;color: #ccc9c9;text-align: center;">Sistema de Controle de Cargas</p>
+            <?= $this->FlashMessenger(); ?>
+            <form class="form-signin" action="<?= $this->Url(array('module' => 'admin', 'controller' => 'login', 'action' => 'index')); ?>" method="post">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="text" id="inputEmail" name="login" class="form-control" placeholder="Seu Login" required="" autofocus="">
+                <input type="password" id="inputPassword" name="senha" class="form-control" placeholder="Sua Senha" required="">
+                <div id="remember" class="checkbox">
+
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Login</button>
+            </form><!-- /form -->
+            <a href="<?= $this->Url(array('module' => 'admin', 'controller' => 'login', 'action' => 'recuperar-senha')); ?>" role="button" data-toggle="modal" class="forgot-password">
+                Esqueci Minha Senha?
+            </a>
+
+        </div>
+
+        <!--        </div>   -->
+    </body>
+</html>

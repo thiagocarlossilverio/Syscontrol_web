@@ -1,0 +1,75 @@
+#zend_form  { background-color: #F00 !important}
+#conteudo 	{ min-height: 300px;}
+.envolve{
+	width:100px;
+	height:120px;
+	padding:5px;
+	background:#f1f1f1;
+	border:1px solid #ccc;
+	float:left;
+	margin:6px;
+	margin-bottom:5px;
+}
+.dashed{
+	width:100px;
+	height:120px;
+	padding:5px;
+	background:#fff;
+	border:1px dashed red;
+	float:left;
+	margin:6px;
+	margin-bottom:5px;
+}
+.envolve div{
+	width:98px;
+	height:98px;
+	border:1px solid #ccc;
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-color:#fff;
+	float:left;
+}
+.envolve span{
+	float:right;
+	color:#F00;
+	font-size:18px;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+.multis-right{
+    width: 41px!important;
+    float:none !important;
+}
+
+.multis-left{
+   width: 41px!important;
+    float:none !important;
+}
+
+.icon {
+  height: 28px;
+  width: 22px;
+}
+
+.box-icons i {
+  cursor: pointer;
+  font-style: normal !important;
+  color: #788288 !important;
+  background: #fff;
+  padding: 7px 7px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.box-icons i:hover {
+  border-color: #999;
+}
+
+.box-icons i#ativo {
+  background:#207f13;
+  border-color: #207f13;
+  color: #fff !important;
+}

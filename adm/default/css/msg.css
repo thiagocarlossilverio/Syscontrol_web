@@ -1,0 +1,57 @@
+/*!
+ * Box do erro
+ */
+#alerta {
+border-radius: 3px;
+color: #fff;
+display: none;
+padding: 9px 0px;
+position: fixed;
+margin: auto;
+text-align: center;
+top: 0px;
+z-index: 99999;
+display: none;
+width: 100%;
+}
+
+div.success {
+background-repeat: no-repeat;
+background-position: 7px;
+background-color: #33AD83;
+border: 1px solid #9CE2EC;
+opacity: 0.8;
+}
+div.error {
+background-repeat: no-repeat;
+background-position: 7px;
+background-color: #e74c3c;
+border: 1px solid #E28D93;
+opacity: 0.8;
+}
+
+#msg_sucesso_excluir{
+background-color: #daffd2;
+border: 1px solid #9ce28d;
+border-radius: 10px;
+color: #333;
+height: 38px;
+margin-left: 1394px;
+margin-top: -194px;
+position: fixed;
+text-align: center;
+width: 210px;
+}
+
+msg_sucesso_excluir {
+background-color: #DAFFD2;
+border: 1px solid #9ce28d;
+border-radius: 10px;
+color: #333;
+height: 38px;
+margin-left: 1394px;
+margin-top: -194px;
+position: fixed;
+text-align: center;
+width: 210px;
+}

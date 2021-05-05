@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Demystifying Email Design</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+
+.conteudo {
+	font-family: Times New Roman, Times, serif;
+	color:#666666;
+	
+}
+</style>
+</head>
+<table width="621" height="434" border="0">
+  <tr>
+    <td width="615" height="93" bgcolor="#006A9E"><img src="http://schoeler.com.br/imagens/logo-email.png"></td>
+  </tr>
+  <tr>
+    <td height="293"><table width="683" height="291" border="0" style="border-style: dotted;border-width: 1px; border-color: 660033;" align="center">
+    <tr style="border-style: dotted;border-width: 1px; border-color: 660033;">
+      <th height="21" colspan="4" scope="col"><div align="left"><span class="conteudo"><strong>Ol&aacute; <?php echo utf8_decode($this->dados['nome']); ?> </strong></span></div></th>
+    </tr>
+     <tr>
+       <th height="45" colspan="4" bgcolor="#006A9E" style="border-style: dotted;border-width: 1px; border-color: 660033;" scope="col" border="0"><div align="left"><span class="conteudo" style="color:#FFF;">Segue os dados da pesagem do ve&iacute;culo: <strong>
+         <?=$this->dados['placa'];?>
+         </strong></span></div></th>
+     </tr>
+     
+      <tr>
+        <td width="106" height="23" style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo"><strong>Tipo:</strong></span></td>
+        <td width="141" style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+          <?=utf8_decode($this->dados['subcategoria']);?>
+        </span></td>
+       
+        <td width="144" style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo"><strong>Data Abertura:</strong></span></td>
+        <td width="264" style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+          <?=$this->ConvercaoDate('-', $this->dados['data_entrada'], 10); ?>
+        </span></td>
+      </tr>
+      <tr>
+        <td height="23" style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo"><strong>Peso Bruto:</strong></span></td>
+        <td style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+          <?=number_format($this->dados['peso_bruto'], 2, ".", ",");?>
+        </span></td>
+        <td style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo"><strong>Data Fechamento:</strong></span></td>
+        <td style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+          <?=$this->ConvercaoDate('-', $this->dados['data_saida'], 10); ?>
+        </span></td>
+      </tr>
+      <tr style="border-style: dotted;border-width: 1px; border-color: 660033;">
+        <td style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo"><strong>Peso Tara:</strong></span></td>
+        <td style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+          <?=number_format($this->dados['peso_tara'], 2, ".", ",");?>
+        </span></td>
+        <td style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo"><strong>Fornecedor:</strong></span></td>
+        <td style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+          <?=utf8_decode($this->dados['fornecedor']);?>
+        </span></td>
+      </tr>
+      <tr>
+        <td style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo"><strong>Peso Liqu&iacute;do:</strong></span></td>
+        <td style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+          <?=number_format($this->dados['peso_liquido'], 2, ".", ",");?>
+        </span></td>
+        <td style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo"><strong>Cliente:</strong></span></td>
+        <td style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+          <?=utf8_decode($this->dados['destino']);?>
+        </span></td>
+      </tr>
+      <tr>
+        <td style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo"><strong>Peso M&eacute;dio:</strong></span></td>
+        <td style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+          <?=number_format($this->dados['peso_medio'], 2, ".", ",");?>
+        </span></td>
+        <td style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo"><strong>Motorista:</strong></span></td>
+        <td style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+          <?=utf8_decode($this->dados['motorista']);?>
+        </span></td>
+      </tr>
+      <tr>
+        <td style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo"><strong>Quantidade:</strong></span></td>
+        <td style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+          <?=$this->dados['cabecas'];?>
+        </span></td>
+        <td style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo"><strong>Ve&iacute;culo:</strong></span></td>
+        <td style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+          <? if(!empty($this->dados['modelo_veiculo'])){ echo utf8_decode($this->dados['modelo_veiculo']).' -';}?> 
+          <?=$this->dados['placa'];?>
+        </span></td>
+      </tr>
+      <tr>
+
+       <? if(!empty($this->dados['local_pesagem'])) { ?>
+       <td style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo"><strong>Local Pesagem:</strong></span></td>
+       <td style="border-style: dotted;border-width: 1px; border-color: 660033;"><span class="conteudo" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+          <?=utf8_decode($this->dados['local_pesagem']);?>
+        </span></td>
+        <? }else{ ?>
+          <td height="23" style="border-style: dotted;border-width: 1px; border-color: 660033;">&nbsp;</td>
+          <td style="border-style: dotted;border-width: 1px; border-color: 660033;">&nbsp;</td>
+        <? } ?>
+       
+        <td style="border-style: dotted;border-width: 1px; border-color: 660033;">&nbsp;</td>
+        <td style="border-style: dotted;border-width: 1px; border-color: 660033;">&nbsp;</td>
+      </tr>
+     
+    </table></td>
+  </tr>
+  <tr>
+    <td height="39" bgcolor="#006A9E"><div align="center"><strong><em style="color:#FFF; font-size:12px;">Caso tenha alguma duvida contate o departamento de TI;</em></strong></div></td>
+  </tr>
+</table>
+</html>

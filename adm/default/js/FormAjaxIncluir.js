@@ -1,0 +1,1 @@
+$(function () {    $.getScript('/adm/default/js/lib/mascaras.js', function () {        $('#placa').mask('aaa9999');        $('#cpf').mask('999.999.999-99');        $('#data_nascimento').mask('99/99/9999');        $('#telefone').mask('(99) 9999-9999');    });    $('#placa').css({'text-transform': 'uppercase'});});

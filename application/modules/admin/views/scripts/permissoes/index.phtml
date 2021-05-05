@@ -1,0 +1,36 @@
+<?
+$this->headLink()->appendStylesheet($this->BaseUrl('adm/default/css/ViewPermissoes.css'));
+  $this->headScript()->appendFile($this->BaseUrl('adm/default/js/ViewPermissoes.js'));
+//$checkbox = array('1' => 'Usuario', '2' => 'Admin');
+ ?>
+
+<div class="panel panel-primary">
+   <div class="panel-heading">
+      Permissões de Menu
+   </div>
+   <div class="panel-primary">
+      <div id="accordion">
+         <? foreach($this->menus as $menu){?>  
+         <h3><? if($menu['controlador'] == 'index'){ echo 'INICIO';}else{echo strtoupper($menu['controlador']);}?></h3>
+         <div class="panel-body">
+             <ul class="list-group">
+               <? foreach($menu['acoes'] as $row){?> 
+                <li class="list-group-item">
+                    <div class="group-labe"> <? if($row['acao']== 'index'){ echo 'Listar';}else{ echo ucfirst($row['acao']);}?></div>
+                   <div class="group-rad" data-id="<?=$row['id'];?>">
+                    
+                      <? foreach ($this->perfis as $key => $check){ 
+                        $verifica = $this->permissoes->VerificaPerfil($row['id'], $check['id']);
+                        if($verifica){$checked = 'checked';}else{$checked = '';}
+                        ?>
+                         <input type="checkbox" name="perfil" <?=$checked;?> value="<?=$check['id']?>"><strong><?=$check['nome'];?></strong>
+                      <? } ?>
+                   </div>
+                </li>
+               <? }?>
+            </ul>
+         </div>
+         <? }?>
+      </div>
+   </div>
+</div>

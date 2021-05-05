@@ -1,0 +1,77 @@
+<? if (!empty($this->conf['cor_layout'])) { ?>
+    <script>
+        $(function () {
+            setInterval('verificaCarga()', 100000);
+            $('.panel-primary > .panel-heading, .ui-accordion .ui-accordion-icons').css({'background-color': '#<?= $this->conf['cor_layout']; ?>', 'border-color': '#<?= $this->conf['cor_layout']; ?>'});
+            $('.btn-success').css({'background-color': '#<?= $this->conf['cor_layout']; ?>', 'border-color': '#<?= $this->conf['cor_layout']; ?>'});
+            $('thead').not('.ticket').css({'background': '#<?= $this->conf['cor_layout']; ?>'});
+        });
+
+
+        function verificaCarga() {
+            $.ajax({
+                url: '/admin/cargas/ajax-verifica/',
+                type: 'POST',
+                dataType: 'json'
+
+            }).done(function (data) {
+                if (data > 0) {
+                    if (data > 1) {
+                        var texto = 'Cargas';
+                    } else {
+                        var texto = 'Carga';
+                    }
+                    $.notify("Existe " + data + " " + texto + " com Pendência", "info");
+                }
+            });
+        }
+
+    </script>
+<? } ?>
+<nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0; background-color: #<?= $this->conf['cor_layout']; ?>">
+    <div class="navbar-header" style="background-color: #<?= $this->conf['cor_layout']; ?>">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+            <span class="sr-only">MENU</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/admin">
+            <img class="img-responsive" src="<?= $this->BaseUrl('adm/default/img/schoeler.png'); ?>" alt="Schoeler Suínos">
+        </a>
+
+    </div>
+    <div style="color: white; padding: 15px 50px 5px 50px;  float: right;font-size: 16px;">
+        <div id="avatar">
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <? if (!empty($this->user->imagem) && file_exists('imagens/usuarios/' . $this->user->imagem)) { ?>
+                            <img id="user-imagem" class="img-responsive img-thumbnail" src="<?= $this->BaseUrl('imagens/usuarios/' . $this->user->imagem); ?>">
+                            <?
+                        } else {
+                            echo $this->gravatar()->setEmail($this->user->email)->setImgSize(90)->setDefaultImg(Zend_View_Helper_Gravatar::DEFAULT_MONSTERID)->setSecure(true)->setAttribs(array('class' => 'img-responsive img-thumbnail', 'title' => $this->user->nome));
+                        }
+                        ?>
+                        &nbsp;&nbsp;&nbsp;
+                        <div id="nick"><?= $this->user->nome; ?><b class="caret"></b></div>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="<?= $this->url(array('module' => 'admin', 'controller' => 'usuarios', 'action' => 'perfil'), null, TRUE); ?>"><i class="fa fa-fw fa-user"></i> Perfil</a>
+                        </li>
+                        <? if ($this->user->perfil == 3) { ?>
+                            <li>
+                                <a href="<?= $this->url(array('module' => 'admin', 'controller' => 'logs'), null, TRUE); ?>"><i class="fa fa-fw fa-gear"></i>Logs</a>
+                            </li>
+                        <? } ?>
+                        <li>
+                            <a href="<?= $this->url(array('module' => 'admin', 'controller' => 'login', 'action' => 'logout'), null, FALSE); ?>"><i class="fa fa-fw fa-power-off"></i>Sair</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+

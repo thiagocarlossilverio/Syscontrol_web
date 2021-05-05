@@ -1,0 +1,38 @@
+.fileWrapper{
+    position:relative;
+    overflow:hidden;
+    padding:0
+}
+input[type=text].fileInputText{
+    float:left;
+    width: 650px!important;
+
+    // border: 1px solid #ADADAE !important;
+    margin:0;
+    padding:0 5px
+
+}
+input[type=button].fileInputButton{
+    float:right;
+    background: #47A447;
+    color: #fff !important;
+    margin-bottom: 20px!important;
+    box-sizing:content-box;
+    -moz-box-sizing:content-box;
+    -webkit-box-sizing:content-box;
+    // border: 1px solid #ADADAE !important;
+    margin:0;
+    margin-top: -44px!important;
+    padding:0;
+    cursor: pointer!important;
+    border: none;
+    cursor: pointer;
+   
+}
+
+
+.fileInputText{
+    height: 36px!important;
+    line-height: 44px!important;
+    border-radius: 8px!important;
+    border: 1px solid #D5D5D5!important;

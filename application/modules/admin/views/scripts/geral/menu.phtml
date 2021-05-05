@@ -1,0 +1,11 @@
+<ul class="nav nav-tabs">
+  <? foreach($this->menus as $row){?>
+   <? if(!empty($row['pai'])&& $row['pai']!=0){?>
+  <li class="active">
+      <a href="/admin/<?=$row['controller'];?>/<?=$row['action']?>">
+          <i class="<?=$row['icone']?> fa-1x"></i>   <?=$row['nome']?>
+      </a> 
+  </li>
+  <?}?>
+  <?}?>
+</ul>

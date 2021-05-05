@@ -1,0 +1,59 @@
+<?php $this->headScript()->appendFile('administrator/js/menus.js');
+$params = Zend_Controller_Front::getInstance()->getRequest()->getParams(); 
+//Zend_Debug::dump($params);die;
+?>
+<!-- /. NAV TOP  -->
+<nav class="navbar-default navbar-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav sortable" id="main-menu">
+            <p></p>
+           
+            <li>
+                <a href="/admin"><i class="fa fa-flag-checkered fa-2x"></i> Dashboard</a>
+            </li>
+
+            <?php if (isset($this->menus)) { ?>
+                <?php
+                foreach ($this->menus as $row) {
+                    if (!empty($row['param'])) {
+                        $url = $this->url(array('module' => 'admin', 'controller' => $row['controller'], 'action' => $row['action'], 'param' => $row['param']), null, true);
+                    } else {
+                        $url = $this->url(array('module' => 'admin', 'controller' => $row['controller'], 'action' => $row['action']), null, true);
+                    }
+                    ?> 
+                    <?php if (empty($row['filho'])) { ?>
+                        <li class="quadro" data-ordem="<?= $row['id']; ?>">
+                            <a href="<?=$url?>"><i class="<?=$row['icone'];?> fa-2x"></i><?= $row['nome'] ?></a>
+                        </li>
+                    <?php } ?>
+                    <li class="quadro <? if($row['controller'] == $params['controller']){ echo 'active';}?>" data-ordem="<?= $row['id']; ?>">
+                        <?php if (!empty($row['filho'])) { ?>
+                            <a href="#"><i class="<?=$row['icone'];?> fa-1x"></i> 
+                                <?= $row['nome'] ?><span class="fa arrow"></span>
+                            </a>
+                        <?php } ?>
+                        <ul class="nav nav-second-level">
+
+                            <?php
+                            foreach ($row['filho'] as $filho) {
+                                if (!empty($filho['param'])) {
+                                    $url = $this->url(array('module' => 'admin', 'controller' => $filho['controller'], 'action' => $filho['action'], 'param' => $filho['param']), null, true);
+                                } else {
+                                    $url = $this->url(array('module' => 'admin', 'controller' => $filho['controller'], 'action' => $filho['action']), null, true);
+                                }
+                                ?> 
+                                <li>
+                                    <a href="<?= $url ?>"><?= $filho['nome'] ?></a>
+                                </li>
+                            <?php } ?>
+
+                        </ul>
+                    </li> 
+                <?php } ?>
+            <?php } ?>    
+
+        </ul>
+
+    </div>
+
+</nav>  

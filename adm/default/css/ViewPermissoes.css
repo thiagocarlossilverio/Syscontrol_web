@@ -1,0 +1,17 @@
+.ui-accordion-content-active{
+    height:auto!important;
+    min-height: 380px!important;
+}
+
+.ui-accordion .ui-accordion-icons {
+    padding-left: 2.2em;
+     background: #3E8282;
+    color: #fff;
+}
+
+.panel-default > .panel-heading {
+    color: #333;
+    background-color: #3E8282;
+    border-color: #ddd;
+    color: #FFF;
+}

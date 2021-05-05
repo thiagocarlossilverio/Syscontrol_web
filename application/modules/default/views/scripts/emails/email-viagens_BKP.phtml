@@ -1,0 +1,94 @@
+<table style="height: 530px; width: 790px; margin-left: auto; margin-right: auto;" border="1">
+    <tbody>
+        <tr style="height: 28px;">
+            <td style="background-color: #006a9e; height: 28px; width: 1075px;" colspan="6">&nbsp;<strong><img src="http://schoeler.com.br/imagens/logo-email.png" /></strong></td>
+        </tr>
+        <tr style="height: 29px;">
+            <td style="width: 1075px; height: 29px;" colspan="6">
+                <h4><strong>Ol&aacute; <?= utf8_decode($this->dados['nome_usuario']); ?></strong></h4>
+            </td>
+        </tr>
+        <tr style="height: 7px;">
+            <td style="width: 1075px; height: 7px; background-color: #006a9e;" colspan="6">
+                <h3><span style="color: #ffffff;">Segue os dados da pesagem do ve&iacute;culo:&nbsp;<?= $this->dados['veiculo']; ?></span></h3>
+            </td>
+        </tr>
+        <tr style="height: 50px;">
+            <td style="background-color: #f2f2f2; width: 178px; height: 50px;">
+                <p>&nbsp;<strong>Motorista:</strong></p>
+            </td>
+            <td style="background-color: #f2f2f2; width: 182px; height: 50px;">&nbsp;<?= utf8_decode($this->dados['motorista']); ?></td>
+            <td style="background-color: #f2f2f2; width: 159px; height: 50px;"><strong>&nbsp;Categoria:</strong></td>
+            <td style="background-color: #f2f2f2; width: 200px; height: 50px;">&nbsp;<?= utf8_decode($this->dados['categoria']); ?></td>
+            <td style="background-color: #f2f2f2; width: 129px; height: 50px;">&nbsp;<strong>Subcategoria:</strong></td>
+            <td style="background-color: #f2f2f2; width: 197px; height: 50px;">&nbsp;<?= utf8_decode($this->dados['subcategoria']); ?></td>
+        </tr>
+
+        <tr style="height: 18px;">
+            <td style="width: 178px; height: 18px;">
+                <p>&nbsp;<strong>Origem Viagem:</strong></p>
+            </td>
+            <td style="width: 182px; height: 18px;">&nbsp;<?= utf8_decode($this->dados['origem']); ?></td>
+            <td style="width: 159px; height: 18px;">&nbsp;<strong>Origem Carregamento:</strong></td>
+            <td style="width: 200px; height: 18px;">&nbsp;<?= utf8_decode($this->dados['origem_carregamento']); ?></td>
+            <td style="width: 129px; height: 18px;">&nbsp;<strong>Destino Carregamento:</strong></td>
+            <td style="width: 197px; height: 18px;">&nbsp;<?= utf8_decode($this->dados['destino_carregamento']); ?></td>
+        </tr>
+
+        <tr style="height: 18px;">
+            <td style="width: 178px; height: 18px;">
+                <p>&nbsp;<strong>Destino Final:</strong></p>
+            </td>
+            <td style="width: 182px; height: 18px;">&nbsp;<?= utf8_decode($this->dados['destino_final']); ?></td>
+            <td style="width: 159px; height: 18px;">&nbsp;<strong>Pesagem Abertura:</strong></td>
+            <td style="width: 200px; height: 18px;">&nbsp;<?= utf8_decode($this->dados['pesagem_manual_inicio']); ?></td>
+            <td style="width: 129px; height: 18px;">&nbsp;<strong>Pesagem Fechamento:</strong></td>
+            <td style="width: 197px; height: 18px;">&nbsp;<?= utf8_decode($this->dados['pesagem_manual_fim']); ?></td>
+        </tr>
+
+        <tr style="height: 51px;">
+            <td style="width: 178px; height: 51px; background-color: #f2f2f2;">
+                <p><strong>Local Pes. Abertura:</strong></p>
+            </td>
+            <td style="width: 182px; height: 51px; background-color: #f2f2f2;">&nbsp;<?= utf8_decode($this->dados['local_abertura']); ?></td>
+            <td style="background-color: #f2f2f2; width: 159px; height: 51px;"><strong>Local Pes. Fechamento:</strong></td>
+            <td style="background-color: #f2f2f2; width: 200px; height: 51px;">&nbsp;<?= utf8_decode($this->dados['local_fechamento']); ?></td>
+            <td style="background-color: #f2f2f2; width: 129px; height: 51px;"><strong>Peso Bruto:</strong></td>
+            <td style="background-color: #f2f2f2; width: 197px; height: 51px;">&nbsp;<?= $this->dados['peso_bruto']; ?></td>
+        </tr>
+        <tr style="height: 18px;">
+            <td style="width: 178px; height: 18px;">
+                <p>&nbsp;<strong>Peso Tara:</strong></p>
+            </td>
+            <td style="width: 182px; height: 18px;">&nbsp;<?= $this->dados['peso_tara']; ?></td>
+            <td style="width: 159px; height: 18px;">&nbsp;<strong>Peso Liqu&iacute;do:</strong></td>
+            <td style="width: 200px; height: 18px;">&nbsp;<?= $this->dados['peso_liquido']; ?></td>
+            <td style="width: 129px; height: 18px;">&nbsp;<strong>Peso M&eacute;dio:</strong></td>
+            <td style="width: 197px; height: 18px;">&nbsp;<?= $this->dados['peso_medio']; ?></td>
+        </tr>
+        <tr style="height: 18px; background-color: #f2f2f2;">
+            <td style="background-color: #f2f2f2; width: 178px; height: 18px;">
+                <p>&nbsp;<strong>Quantidade:</strong></p>
+            </td>
+            <td style="background-color: #f2f2f2; width: 182px; height: 18px;">&nbsp;<?= $this->dados['quantidade']; ?></td>
+            <td style="background-color: #f2f2f2; width: 159px; height: 18px;">&nbsp;<strong>Data Abertura:</strong></td>
+            <td style="background-color: #f2f2f2; width: 200px; height: 18px;">&nbsp;<?= $this->dados['data_abertura']; ?></td>
+            <td style="width: 129px; height: 18px;">&nbsp;<strong>Data Fechamento:</strong></td>
+            <td style="width: 197px; height: 18px;">&nbsp;<?= $this->dados['data_fechamento']; ?></td>
+        </tr>
+        <tr style="height: 18px;">
+            <td style="width: 178px; height: 18px;">
+                <p><strong>Observa&ccedil;&atilde;o:</strong></p>
+            </td>
+            <td style="width: 891px; height: 18px;" colspan="5">
+                <?= utf8_decode($this->dados['observacao']); ?>
+            </td>
+        </tr>
+        <tr style="height: 18px; background-color: #f2f2f2;">
+            <td style="width: 1075px; height: 18px;" colspan="6">&nbsp;</td>
+        </tr>
+        <tr style="height: 53px;">
+            <td style="width: 1075px; height: 53px; background-color: #006a9e;" colspan="6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </tbody>
+</table>

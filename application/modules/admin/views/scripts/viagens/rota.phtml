@@ -1,0 +1,33 @@
+<script src="//maps.google.com/maps/api/js?key=AIzaSyB8fwcY8P1zBfPs_fCvqP1-hUzpIi-pgx4&sensor=false"></script>
+<?
+$this->headScript()->appendFile($this->BaseUrl('adm/default/js/infobox.js'));
+$this->headScript()->appendFile($this->BaseUrl('adm/default/js/markerclusterer.js'));
+$this->headScript()->appendFile($this->BaseUrl('adm/default/js/rota.js'));
+
+header('Expires: Sat, 26 Jul 1997 05:00:00 GMT');
+header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+header('Cache-Control: no-store, no-cache, must-revalidate');
+header('Pragma: no-cache');
+?>
+<META HTTP-EQUIV="Pragma" CONTENT="no cache">
+<div id="mensagem" title="Informação"></div>
+<div class="row">
+    <div class="col-md-10">
+        <!-- Form Elements -->
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Cadastro de Carga</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div id='mapa' style='height: 500px; width: 700px'>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Form Elements -->
+    </div>
+</div>

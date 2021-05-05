@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://www.amazium.co.uk/404 -->
+<html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta charset="utf-8">
+      <link href="<?= $this->BaseUrl('adm/default/css/bootstrap.css'); ?>" rel="stylesheet" media="screen" type="text/css" />
+      <script src="<?= $this->BaseUrl('adm/default/js/bootstrap.min.js'); ?>" type="text/javascript"></script>
+      <title>Erro - Não encontrado!</title>
+      <!-- CSS -->
+      <style>
+         /***** Reset & Basics *****/
+         html, body, div, span, applet,
+         object, iframe, h1, h2, h3, h4,
+         h5, h6, p, blockquote, pre, a,
+         abbr, acronym, address, big, cite,
+         code, del, dfn, em, img, ins, kbd,
+         q, s, samp, small, strike, strong,
+         sub, sup, tt, var, b, u, i, center,
+         dl, dt, dd, ol, ul, li, fieldset,
+         form, label, legend, table, caption,
+         tbody, tfoot, thead, tr, th, td,
+         article, aside, canvas, details,
+         embed, figure, figcaption, footer,
+         header, hgroup, menu, nav, output,
+         ruby, section, summary, time, mark,
+         audio, video 							{ margin: 0; padding: 0; border: 0; font-size:100%; font:inherit; vertical-align:baseline; }
+         article, aside, details, figcaption, 
+         figure, footer, header, hgroup, menu, 
+         nav, section 							{ display:block; }
+         body 									{ line-height:1; }
+         ol, ul 									{ list-style:none; }
+         blockquote, q 							{ quotes:none; }
+         blockquote:before, blockquote:after,
+         q:before, q:after 						{ content:''; content:none; }
+         table 									{ border-collapse:collapse; border-spacing:0; }
+         /***** Basic Styles *****/
+         html 									{ overflow-y:scroll; overflow:-moz-scrollbars-vertical; }
+         body									{ margin:20px 0 0 0; padding:0; background:#FFF; font:12px "Century Gothic", "Trebuchet MS", Helvetica, sans-serif; color:#333; -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:none; }
+         /***** Links *****/
+         a:link 									{ color:#333; text-decoration:none; outline:0; transition-property:color .1s linear 0s; -moz-transition:color .1s linear 0s; -webkit-transition:color .1s linear 0s; -o-transition:color .1s linear 0s; }
+         a:visited 								{ color:#333; text-decoration:none; outline:0; }
+         a:active 								{ color:#333; text-decoration:none; outline:0; }
+         a:hover 								{ color:#999; text-decoration:underline; outline:0; }
+         a:focus 								{ -moz-outline-style:none; }
+         /***** Standard 960px *****/
+         body									{ background:#232323; color:#f1f1f1; }
+         .centered_div 							{ width:368px; height:400px; position:absolute; top:50%; left:50%; margin-left:-184px; margin-top:-200px; }
+         .error-404								{ margin:30px 0 0 0; padding:0 0 0 85px; height:95px; background:url(../images/404.png) no-repeat left 10px; font-size:90px; line-height:75px; }
+         .error									{ padding:0 0 30px 0; font-size:200px; line-height:150px; }
+         .error-link								{ padding:0 0 20px 0; font-size:34px; }
+         .centered_div a:link 					{ color:#fff; text-decoration:none; outline:0; }
+         .centered_div a:visited 				{ color:#fff; text-decoration:none; outline:0; }
+         .centered_div a:active 					{ color:#fff; text-decoration:none; outline:0; }
+         .centered_div a:hover 					{ color:#fff; text-decoration:underline; outline:0; }
+         .centered_div a:focus 					{ -moz-outline-style:none; }
+         /***** iPad Smaller than 959px *****/
+         @media only screen and (min-width: 768px) and (max-width: 959px) {
+         .error-404								{ font-size:72px; line-height:89px; font-weight:700}
+         .error									{ font-size:178px; line-height:150px; }
+         .error-link								{ font-size:28px; }
+         }
+         /***** iPhone (portrait 300px) *****/
+         @media only screen and (max-width: 767px) {
+         .error-404								{ font-size:72px; line-height:89px; }
+         .error									{ font-size:178px; line-height:150px; }
+         .error-link								{ font-size:28px; }
+         }
+         /***** iPhone (landscape 420px) *****/
+         @media only screen and (min-width: 480px) and (max-width: 767px) {
+         .error-404								{ font-size:72px; line-height:89px; }
+         .error									{ font-size:178px; line-height:150px; }
+         .error-link								{ font-size:28px; }
+         }
+         .descricao { font-size: 12px; color: #F00;}
+         .descricao span { color: #666;}
+      </style>
+   </head>
+   <body>
+      <div class="centered_div">
+         <div class="row">
+            <div class="column grid_5">
+               <p class="error-404">Erro...</p>
+               <p class="error">404</p>
+               <p>Desculpe, mas a página que você procura não existe. Tente acessar novamente a <a href="/">home page</a>.</p>
+              <?php?> 
+               <div class="descricao">
+                  </br><b>DESCRIÇÃO DO ERRO:</b> <?php echo strtoupper($this->message);?> </br></br>
+                  <span>
+                     <?php if($this->has_exception){?>        
+                     <div class="panel panel-primary" style="width: 630px;">
+                        <div class="panel-heading">Informações de Exceção:</div>
+                        <div class="panel-body">
+                            <div class="panel panel-danger">
+                                <?=$this->exception_message; ?>
+                            </div>
+                        </div>
+                      </div>
+                      
+                      <div class="panel panel-primary" style="width: 630px;">
+                        <div class="panel-heading">Rastreamento de Pilha:</div>
+                        <div class="panel-body">
+                          <div class="panel panel-danger">
+                            <?=$this->trace;?>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      
+                       <?php if(isset($this->extras)){?>
+                       <div class="panel panel-primary" style="width: 630px;">
+                        <div class="panel-heading">Extras:</div>
+                        <div class="panel-body">
+                          <div class="panel panel-danger">
+                            <?=$this->extras;?>
+                          </div>
+                        </div>
+                       </div>
+                        <? }?>
+                      
+                      <div class="panel panel-primary" style="width: 630px;">
+                        <div class="panel-heading">Parâmetros Retornados:</div>
+                        <div class="panel-body">
+                        <div class="panel panel-danger">
+                            <?=$this->params ?>
+                        </div>
+                        </div>
+                       </div>
+                    <?}?>
+                  </span>
+               </div>
+               <??>
+            </div>
+         </div>
+      </div>
+     
+   </body>
+</html>

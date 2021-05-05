@@ -1,0 +1,58 @@
+<? $this->headScript()->appendFile($this->BaseUrl('adm/default/js/ChartReportMediaConsumo.js')); ?>
+<div class="teste">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- Advanced Tables -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- Form Elements -->
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <div class="btn-group left" style="top:6px;">
+                                        <div class="form-group">
+                                            <input type="text" value="<?= $this->dt_inicio; ?>" class="form-control data" id="data_inicio" placeholder="Data de Inicio">
+                                        </div>
+                                    </div>
+
+                                    <div class="btn-group left" style="top:6px;">
+                                        <div class="form-group">
+                                            <input type="text" value="<?= $this->dt_fim; ?>" class="form-control data" id="data_fim" placeholder="Data Fim">
+                                        </div>
+                                    </div>
+                                    <div class="btn-group left" style="top:6px;">
+                                        <div class="form-group">
+                                            <button type="button" class="btn btn-warning" id="pesquisar">Pesquisar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <img src="<?= $this->grafico; ?>">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Form Elements -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  end  Context Classes  -->
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

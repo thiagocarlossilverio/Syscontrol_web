@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Ticket de Pesagem</title>
+        <!-- Bootstrap Framework -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script>
+            $(function() {
+                var table = $('.tbticket').clone();
+                $("#fim").after(table);
+            });
+
+        </script>
+        <style>
+            #left-emitente {
+                border-top: 1px solid;
+            }
+
+            #righ-motorista {
+                border-top: 1px solid;
+            }
+            tr:nth-child(5) {
+                border: none;
+            }
+            .table {
+                font-size: 16px!important;
+                font-family: arial!important;
+            }
+            .row .col-md-12.center .panel.panel-primary.tbticket .panel-body .row .col-md-12 .table thead tr th div {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .row .col-md-12.center .panel.panel-primary.tbticket .panel-body .row .col-md-12 .table thead tr th div {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-md-12 center">
+                <!-- Form Elements -->
+                <div class="panel panel-primary tbticket">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Controle de Pesagem de Suinos Schoeler Agropecuária LTDA-E</h2>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table border="0" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th width="14%" height="115"><img src="<?= $this->BaseUrl('adm/default/img/logo.jpg'); ?>" class="img-rounded" alt="Schoeler Suínos" width="140" height="82"></th>
+                                            <th width="29%">
+                                                <p>&nbsp;</p>
+                                                <p>&nbsp;</p>
+                                                <p>&nbsp;</p>
+                                            </th>
+                                            <th colspan="3">
+
+                                                <div style="font-size:14px;" align="right">Data e Hora Pesagem:
+                                                    <?= $this->dados['data_entrada']; ?>
+                                                </div>
+                                                <div style="font-size:14px;" align="right">Data e Hora Emissão:
+                                                    <?= date('d/m/Y H:i:s'); ?>
+                                                </div></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2">
+                                                <p>&nbsp;</p>
+                                                <div align="left"><strong>Produto:</strong>
+                                                    <?= $this->dados['nome_categoria']; ?>
+                                                    <?
+                                                    if (!empty($this->dados['nome_subcategoria'])) {
+                                                        echo '/ ' . $this->dados['nome_subcategoria'];
+                                                    }
+                                                    ?>
+                                                </div></td>
+                                            <td colspan="3"><p>&nbsp;</p>
+                                                <div align="left"><strong>Veiculo:</strong>
+                                                    <?= $this->dados['modelo']; ?>
+                                                    /
+<?= $this->dados['placa']; ?>
+                                                </div></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"><div align="left"><strong>Peso Bruto:</strong>
+<?= number_format($this->dados['peso_bruto'], 2, ".", ","); ?>
+                                                </div></td>
+                                            <td colspan="3"><div align="left"><strong>Transportador:</strong>
+<?= $this->dados['proprietario']; ?>
+                                                </div></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"><div align="left"><strong>Peso Tara:</strong>
+<?= number_format($this->dados['peso_tara'], 2, ".", ","); ?>
+                                                </div></td>
+                                            <td colspan="3"><div align="left"><strong>Fornecedor:</strong>
+<?= $this->dados['fornecedor']; ?>
+                                                </div></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2"><div align="left"><strong>Peso Liquído:</strong>
+<?= number_format($this->dados['peso_liquido'], 2, ".", ","); ?>
+                                                </div></td>
+                                            <td colspan="3"><div align="left"><strong>Destino:</strong>
+<?= $this->dados['cliente']; ?>
+                                                </div></td>
+                                        </tr>
+
+<? if (!empty($this->dados['peso_medio']) && $this->dados['peso_medio'] > 0 && !is_null($this->dados['peso_medio'])) { ?>
+                                            <tr>
+                                                <td colspan="2"><div align="left"><strong>Peso Médio:</strong> <? echo number_format($this->dados['peso_medio'], 2, ".", ",") . ' - KG / ' . $this->dados['cabecas'] . ' Cabeças'; ?> </div></td>
+                                                <td width="32%">&nbsp;</td>
+                                                <td width="2%">&nbsp;</td>
+                                                <td width="23%">&nbsp;</td>
+                                            </tr>
+                                        <? } ?>
+
+<? if (!empty($this->dados['local_pesagem'])) { ?>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <div align="left"> <strong>Local Pesagem:</strong>
+    <?=$this->dados['local_pesagem']; ?>
+                                                    </div>
+                                                </td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+<? } ?>
+
+<? if (!empty($this->dados['descricao'])) { ?>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <div align="left"> <strong>Descrição:</strong>
+    <?= nl2br($this->dados['descricao']); ?>
+                                                    </div>
+                                                </td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+<? } ?>
+                                        <tr>
+                                            <td colspan="2"><div align="left"> <strong>Nota Fiscal:</strong>
+<?= $this->dados['nota_fiscal']; ?>
+                                                </div>
+                                                <p>&nbsp;</p>
+                                                <? if (!empty($this->dados['percentual_quebra'])) { ?>
+                                                    <p style="font-size:14px;"><em>A porcentagem de indice de quebra, está acima de 0.2%</em></p>
+<? } ?>
+                                            </td>
+                                            <td rowspan="2"><p>&nbsp;</p>
+                                                <p>&nbsp;</p>
+                                                <p>&nbsp;</p>
+                                                <p>&nbsp;</p>
+                                                <div align="right" id="left-emitente">
+                                                    <div align="center">
+                                                        <p><strong>Emitente:</strong>
+                                                        <? if (!empty($this->dados['user'])) {
+                                                            echo $this->dados['user'];
+                                                        } else {
+                                                            echo $this->dados['motorista'];
+                                                        } ?>
+                                                        </p>
+<? if (!empty($this->dados['cpf_user'])) { ?>
+                                                            <p><strong>CPF:</strong>
+    <?= $this->dados['cpf_user']; ?>
+                                                            </p>
+<? } ?>
+                                                    </div>
+                                                </div></td>
+                                            <td rowspan="2">&nbsp;</td>
+                                            <td rowspan="2"><p>&nbsp;</p>
+                                                <p>&nbsp;</p>
+                                                <p>&nbsp;</p>
+                                                <p>&nbsp;</p>
+                                                <div align="right" id="righ-motorista">
+                                                    <div align="center">
+                                                        <p><strong>Motorista:</strong>
+                                                        <?= $this->dados['motorista']; ?>
+                                                        </p>
+<? if (!empty($this->dados['cpf_motorista'])) { ?>
+                                                            <p><strong>CPF:</strong>
+    <?= $this->dados['cpf_motorista']; ?>
+                                                            </p>
+<? } ?>
+                                                    </div>
+                                                </div></td>
+                                        </tr>
+                                        <tr>
+                                            <td height="89" colspan="2">&nbsp;</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                                <p>&nbsp;</p>
+                                <div>
+                                    <div align="right"><strong>
+                                            *Obs: O motorista acompanhou a pesagem, e por fim concorda com o que aqui encontra-se expresso.
+                                        </strong></div>
+                                </div>
+                            </div>
+                            <div>
+                                <p>&nbsp;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Form Elements -->
+                <br>
+                <p>........................................................................................................................................................................................................................................................................</p>
+                <br>
+                <p id="fim"></p>
+            </div>
+        </div>
+        <script>window.print();</script>
+    </body>
+</html>

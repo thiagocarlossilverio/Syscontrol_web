@@ -1,0 +1,30 @@
+<html lang="pt">
+    <head>
+        <meta charset="utf-8">
+        <title>Login | Redefinição de senha</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <?= $this->headLink()->appendStylesheet($this->BaseUrl('adm/default/css/bootstrap.css')); ?>
+        <?= $this->headLink()->appendStylesheet($this->BaseUrl('adm/default/css/login.css')); ?>
+        <?= $this->headLink()->appendStylesheet($this->BaseUrl('adm/default/css/msg.css')); ?>
+        <?= $this->headScript()->appendFile($this->BaseUrl('adm/default/js/jquery1.7.2.min.js')); ?>
+        <?= $this->headScript()->appendFile($this->BaseUrl('adm/default/js/bootstrap.min.js')); ?>
+        <?= $this->headLink()->appendStylesheet($this->BaseUrl('adm/default/css/login.css')); ?>
+        <?= $this->headScript()->appendFile($this->BaseUrl('adm/default/js/msg.js')); ?>
+    </head>
+    <body>
+        <?= $this->FlashMessenger(); ?>
+        <div class="container">
+            <div class="card card-container">
+                <div id="logo"></div>
+                <img id="profile-img" class="profile-img-card" src="/adm/default/img/avatar_2x.png">
+                <p id="profile-name" class="profile-name-card"></p>
+                <form class="form-signin" action="<?= $this->Url(array('module' => 'admin', 'controller' => 'login', 'action' => 'requerer-senha')); ?>" method="post">
+                    <span id="reauth-email" class="reauth-email"></span>
+                    <input type="password" id="inputPassword" name="senha" class="form-control" placeholder="Senha" required="">
+                    <input type="password" id="inputPassword" name="confirma_senha" class="form-control" placeholder="Confirmação de Senha" required="">
+                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

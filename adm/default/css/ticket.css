@@ -1,0 +1,23 @@
+#left-emitente {
+    border-top: 1px solid;
+}
+thead{
+    background: #FFF;
+}
+
+#righ-motorista {
+    border-top: 1px solid;
+}
+tr:nth-child(5) {
+    border: none;
+}
+.table {
+    font-size: 16px!important;
+    font-family: arial!important;
+}
+.row .col-md-12.center .panel.panel-primary.tbticket .panel-body .row .col-md-12 .table thead tr th div {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.row .col-md-12.center .panel.panel-primary.tbticket .panel-body .row .col-md-12 .table thead tr th div {
+    font-family: Arial, Helvetica, sans-serif;
+}

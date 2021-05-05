@@ -1,0 +1,56 @@
+<html>
+    <head>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+        <meta http-equiv="refresh" content="300">
+        <script>
+            $(document).ready(function () {
+                $('.slider').bxSlider({
+                    mode: 'fade',
+                    auto: true,
+                    controls: false,
+                    useCSS: true,
+                    infiniteLoop: true,
+                //    hideControlOnEnd: true,
+                       touchEnabled: true,
+                   //  adaptiveHeight: TRUE,
+                    pager: false,
+                    autoHover: true,
+                    pause: 3500
+                });
+            });
+
+        </script>
+        <style>
+            
+            .bx-wrapper{
+               border: 0px!important; 
+            }
+            .slider{
+                border: 0px!important; 
+            }
+            .slider iframe{
+                 border: 0px!important;
+                 width: 100%;
+                 
+            }
+            
+        </style>
+    </head>
+    
+    <body>
+        <div class="slider">
+        <!-- <iframe width="1000px" height="1100px" src="http://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/cotacoes/derivativos.htm"></iframe>-->
+        
+            <!-- <iframe width="1000px"  height="1100px" src="https://www.e-adm.com/futr/futr_display_print.aspx?sym=QSM&name=&chart=QSM%20F19&chartInfo=Soybean%20Meal%20(Composite)%20/%20January%202019"></iframe>
+            <iframe width="1000px" height="1100px" src="https://www.e-adm.com/futr/futr_display_print.aspx?sym=ZC&name=&chart=ZC%20H19&chartInfo=Corn%20(Electronic)%20/%20March%202019"></iframe>-->
+            <iframe width="1000px" height="1100px" src="https://marketintel.intlfcstone.com/MIPublic/br-grains-released"></iframe>
+            <iframe width="1000px" height="1100px" src="https://hgbrasil.com/status/finance/"></iframe>
+            <iframe width="1000px" height="1100px" src="http://www.noticiasagricolas.com.br/widget/cotacoes.js.php?id=178&fonte=Arial%2C%20Helvetica%2C%20sans-serif&tamanho=32pt&largura=100%&cortexto=333333&corcabecalho=B2C3C6&corlinha=DCE7E9&imagem=true&output=html"></iframe>
+            <!--<iframe width="1000px" height="1100px" src="https://www.tempoagora.com.br/previsao-do-tempo/PR/PiraidoSul"></iframe>-->
+        </div>
+        
+    </body>
+</html>

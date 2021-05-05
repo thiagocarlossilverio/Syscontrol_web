@@ -1,0 +1,24 @@
+<?php
+    $this->headLink()->appendStylesheet($this->BaseUrl('adm/default/css/colpick.css'));
+    $this->headScript()->appendFile($this->BaseUrl('adm/default/js/colpick.js'));
+    $this->headScript()->appendFile($this->BaseUrl('adm/default/js/confSystem.js'));
+?>
+<div class="row">
+    <div class="col-md-10">
+        <!-- Form Elements -->
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title"><?= ucfirst($this->controller); ?></h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-10">
+                        <?= $this->form; ?>
+                    </div>                 
+                </div>
+            </div>
+        </div>
+        <!-- End Form Elements -->
+    </div>
+</div>
+

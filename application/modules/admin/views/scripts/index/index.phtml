@@ -1,0 +1,158 @@
+<?
+$this->headScript()->appendFile($this->BaseUrl('adm/default/js/ViewIndex.js'));
+$this->headScript()->appendFile($this->BaseUrl('adm/default/js/ViewCarga.js'));
+$this->headScript()->appendFile($this->BaseUrl('adm/default/js/loader.js'));
+?>
+
+<? /* echo $this->headMeta()->appendHttpEquiv('Refresh', '60;URL=http://'.$_SERVER['HTTP_HOST'].'/admin'); */ ?>
+<style> .chat-img>img {margin-left: 0px;}img{display: block;max-width: 75%;height: auto;}</style>
+<div id="mensagem" title="Notificação"></div>
+<?
+if (!empty($this->dados->imagem) && file_exists('imagens/usuarios/' . $this->dados->imagem)) {
+    $img = $this->BaseUrl('imagens/usuarios/' . $this->dados->imagem);
+} else {
+    $img = $this->BaseUrl('adm/default/img/avatar.png');
+}
+$array = explode(',', $this->dados->ip);
+if ($array) {
+    $this->dados->ip = $array[0];
+}
+?>
+
+<? if (!$this->acesso) { ?>
+    <div id="NotificaDados" data-nome="<?= $this->dados->nome; ?>"  data-ip="<?= $this->dados->ip; ?>" data-img="<?= $img; ?>" data-acesso="<?= $this->ConvercaoDate('-', $this->dados->ultimo_acesso, 4); ?>"></div>
+<? } ?>
+<script type="text/javascript">
+    google.charts.load("current", {packages: ["corechart"]});
+    google.charts.setOnLoadCallback(mes);
+    google.charts.setOnLoadCallback(dia);
+
+    function mes() {
+        var dados_mes = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+<? foreach ($this->mes as $row) { ?>
+                ['<?= $row['nome_categoria']; ?>', <?= $row['total_categoria']; ?>],
+<? } ?>
+
+        ]);
+
+        var option_mes = {
+            title: 'CARGAS DO MÊS',
+            is3D: true
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('mes'));
+        chart.draw(dados_mes, option_mes);
+    }
+
+
+
+    function dia() {
+        var dados_dia = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+<? foreach ($this->dia as $row) { ?>
+                ['<?= $row['nome_categoria']; ?>', <?= $row['total_categoria']; ?>],
+<? } ?>
+
+        ]);
+
+        var option_dia = {
+            title: 'CARGAS DO DIA',
+            is3D: true
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('dia'));
+        chart.draw(dados_dia, option_dia);
+    }
+</script>
+<div class="row">
+    <div class="col-md-12">
+        <!-- Form Elements -->
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Hoje é <?= $this->hoje; ?> </h3>
+            </div>
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-info">
+                            Seu último Acesso foi em: <?= $this->ConvercaoDate('-', $this->dados->ultimo_acesso, 4); ?> - no IP: <a href="http://www.localizaip.com.br/localizar-ip.php?ip=<?= $this->dados->ip; ?>" target="_blank"><?= $this->dados->ip; ?></a>
+                        </div>
+                    </div>
+                </div>
+                <BR><BR>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Form Elements -->
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Peso Atual</h3>
+                            </div>
+
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12 msg">
+                                        <? if ($this->peso != 'erro') { ?>
+                                            <div class="alert alert-success">
+
+                                                <h3><i class="fa fa-truck"></i>  <span id="peso_atual"><?= number_format($this->peso, 2, ',', '.'); ?></span> </h3>
+                                            </div>
+                                        <? } else { ?>
+                                            <div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><span class="sr-only">Erro:</span>Não foi Possível conectar com a balança!</div>
+                                        <? } ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Form Elements -->
+                    </div>
+                </div>
+
+                <BR><BR>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Form Elements -->
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Total de viagens feitas pelo Aplicativo no dia.</h3>
+                            </div>
+
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div  class="img-responsive" id="dia" style="width: 800px; height: 400px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Form Elements -->
+                    </div>
+                </div>
+
+                <BR><BR>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Form Elements -->
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Total de viagens feitas pelo Aplicativo no mês.</h3>
+                            </div>
+
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <div  class="img-responsive" id="mes" style="width: 800px; height: 400px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Form Elements -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

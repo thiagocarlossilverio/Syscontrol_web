@@ -1,0 +1,46 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Lista de Itens de Menus
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>Controlador</th>
+                        <th>Ação</th>
+                        <th>Descrição</th>
+                        <th>Opções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <? foreach ($this->dados as $row) { ?>
+                        <tr>
+                            <td><?= $row['id'] ?></td>
+                            <td><?= $row['nome'] ?></td>
+                            <td><?= $row['controller'] ?></td>
+                            <td><?= $row['action'] ?></td>
+                            <td><?= preg_replace('/<[^>]*>/', ' ', $row['descricao']); ?></td>
+                            <td align="center">
+                                <a href="<?= $this->url(array('action' => 'editar', 'id' => $row['id']), null, FALSE); ?>" class="icon-edit">
+                                    <div class=" btn btn-xs btn-default glyphicon glyphicon-pencil"></div>
+                                </a>
+                                <a href="<?= $this->url(array('action' => 'excluir', 'id' => $row['id']), null, FALSE); ?>"  title="Excluir Item de Menu" data-dialog-text="Deseja realmente excluir este item de menu?" class="iconDelete">
+                                    <div class=" btn btn-xs btn-default glyphicon glyphicon-trash"></div>
+                                </a>   
+
+                            </td>
+
+
+                        </tr>
+                    <? } ?>                       
+                </tbody>
+            </table>
+        </div>
+     
+    </div>
+</div>
+
+

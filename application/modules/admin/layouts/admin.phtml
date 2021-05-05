@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3c.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <!-- GOOGLE FONTS-->
+            <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+            <?= $this->headMeta(); ?>
+            <?php if ($this->headTitle() == '<title></title>') echo '<title>Painel Administrativo</title>'; ?>
+            <link href="<?= $this->BaseUrl('adm/default/css/bootstrap.css'); ?>" rel="stylesheet" media="screen" type="text/css" />
+            <link href="<?= $this->BaseUrl('adm/default/css/font-awesome.css'); ?>" rel="stylesheet" media="screen" type="text/css" />
+            <link href="<?= $this->BaseUrl('adm/default/css/custom.css'); ?>" rel="stylesheet" media="screen" type="text/css" />
+            <link href="<?= $this->BaseUrl('adm/default/js/lib/fancybox/source/jquery.fancybox.css?v=2.1.5'); ?>" rel="stylesheet" media="screen" type="text/css" />
+            <link href="<?= $this->BaseUrl('adm/default/css/jquery.nice-file-input.min.css'); ?>" rel="stylesheet" media="screen" type="text/css" />
+            <link href="<?= $this->BaseUrl('adm/default/css/jquery-ui.css'); ?>" rel="stylesheet" />
+            <link href="<?= $this->BaseUrl('adm/default/css/tooltipster.bundle.min.css'); ?>" rel="stylesheet" />
+            <link href="<?= $this->BaseUrl('adm/default/js/dataTables/dataTables.bootstrap.css'); ?>" rel="stylesheet" media="screen" type="text/css" />
+            <link href="<?= $this->BaseUrl('adm/default/css/select2.css'); ?>" rel="stylesheet" media="screen" type="text/css" />
+            <link href="<?= $this->BaseUrl('adm/default/css/select2-bootstrap.css'); ?>" rel="stylesheet" media="screen" type="text/css" />
+            <?= $this->headLink(); ?>
+            <script src="<?= $this->BaseUrl('adm/default/js/jquery1.7.2.min.js'); ?>" type="text/javascript"></script>
+            <script src="<?= $this->BaseUrl('adm/default/js/bootstrap.min.js'); ?>" type="text/javascript"></script>
+            <script src="<?= $this->BaseUrl('adm/default/js/jquery.metisMenu.js'); ?>" type="text/javascript"></script>
+            <script src="<?= $this->BaseUrl('adm/default/js/morris/raphael-2.1.0.min.js'); ?>" type="text/javascript"></script>
+            <script src="<?= $this->BaseUrl('adm/default/js/jquery-ui.min.js'); ?>"></script>
+            <script src="<?= $this->BaseUrl('adm/default/js/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5'); ?>" type="text/javascript"></script>
+            <script src="<?= $this->BaseUrl('adm/default/js/bootstrap-filestyle.min.js'); ?>" type="text/javascript"></script>
+            <script src="<?= $this->BaseUrl('adm/default/js/lib/ckeditor/ckeditor.js'); ?>" type="text/javascript"></script>
+            <script src="<?= $this->BaseUrl('adm/default/js/dataTables/jquery.dataTables.js'); ?>" type="text/javascript"></script>
+            <script src="<?= $this->BaseUrl('adm/default/js/dataTables/dataTables.bootstrap.js'); ?>" type="text/javascript"></script>
+            <!--<script src="<?= $this->BaseUrl('adm/default/js/select2.min.js'); ?>" type="text/javascript"></script>-->
+            <script src="<?= $this->BaseUrl('adm/default/js/tooltipster.bundle.min.js'); ?>" type="text/javascript"></script>
+            <script src="<?= $this->BaseUrl('adm/default/js/custom.js'); ?>" type="text/javascript"></script>
+            <script src="<?= $this->BaseUrl('adm/default/js/lib/notify.js'); ?>"></script>
+            <script src="<?= $this->BaseUrl('adm/default/js/select2.min.js'); ?>"></script>
+            <?= $this->headScript(); ?>
+    </head>
+    <body>
+        <div id="confirm_delete" title="Deseja realmente excluir este registro?">
+            <div class="iconAlert"></div>
+            <div class="dialog_text">Deseja realmente excluir este registro?</div>
+        </div>
+        <div id="wrapper">
+            <div id="mensagem" style="z-index: 9999;" title="Informação"></div>
+            <?= $this->action('topo', 'geral', 'admin'); ?>
+            <?= $this->action('menu-lateral', 'geral', 'admin'); ?>
+            <div id="page-wrapper" >
+                <?= $this->FlashMessenger(); ?>
+                <?= $this->action('menu', 'geral', 'admin'); ?>
+                <?= $this->layout()->content; ?>
+            </div>
+            <?= $this->action('rodape', 'geral', 'admin'); ?>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Incluir</h4>
+                    </div>
+                    <div class="modal-body conteudo">
+
+                    </div>
+                    <div class="modal-footer">
+                        <!--                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

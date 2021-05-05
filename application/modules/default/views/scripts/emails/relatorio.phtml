@@ -1,0 +1,118 @@
+<table style="height: 530px; width: 618px;" border="1">
+    <tbody>
+        <tr style="height: 28px;">
+            <td style="background-color: #006a9e; height: 28px; width: 719px;" colspan="4">&nbsp;<strong><img src="http://schoeler.com.br/imagens/logo-email.png" /></strong></td>
+        </tr>
+        <tr style="height: 29px;">
+            <td style="width: 719px; height: 29px;" colspan="4">
+                <h4><strong>Ol&aacute; <?php echo utf8_decode($this->dados['usuario']); ?></strong></h4>
+            </td>
+        </tr>
+        <tr style="height: 7px;">
+            <td style="width: 719px; height: 10px; background-color: #006a9e;" colspan="4">
+                <p style="margin: 0; padding: 0; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;"><span style="color: #ffffff;">&nbsp;</span></p>
+                <p style="margin: 0; padding: 0; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;"><span class="lead" style="margin: 0px 0px 10px; padding: 0px; font-family: 'Helvetica Neue', Helvetica, Helvetica, Arial, sans-serif; font-weight: normal; font-size: 14px; line-height: 1.6; color: #ffffff;"><em>RELAT&Oacute;RIO SEMANAL DE CARGAS DOS DIAS <?= date('d/m/Y', strtotime('-7 days')); ?> &Aacute; <?= date('d/m/Y H:i:s'); ?>.</em></span></p>
+            </td>
+        </tr>
+        <tr style="height: 18px; background-color: #f2f2f2;">
+            <td style="width: 719px; height: 18px;" colspan="4">
+                <? foreach ($this->dados['categorias'] as $categoria) { ?>
+
+                    <table style="border-collapse: collapse; width: 100%;" border="1">
+                        <tbody>
+                            <tr style="height: 21px;">
+                                <td style="width: 100%; height: 21px;" bgcolor="#0575b9"><h2 style="color: #ffffff;"><?= strtoupper(utf8_decode($categoria['nome_subcategoria'])); ?></h2></td>
+                            </tr>
+                            <tr style="height: 21px;">
+                                <td style="width: 100%; height: 10px;">&nbsp;</td>
+                            </tr>
+                            <tr style="height: 21px;">
+                                <td style="width: 100%; height: 21px;">
+                                    <table border="1" width="900">
+                                        <tbody>
+                                            <tr style="color: #fff;">
+                                                <td bgcolor="#0575b9" width="203" height="29">
+                                                    <div align="center"><span class="lead" style="margin: 0; padding: 0; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin-bottom: 10px; font-weight: normal; font-size: 14px; line-height: 1.6;"><strong>Motorista</strong></span></div>
+                                                </td>
+                                                <td bgcolor="#0575b9" width="81">
+                                                    <div align="center"><span class="lead" style="margin: 0; padding: 0; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin-bottom: 10px; font-weight: normal; font-size: 14px; line-height: 1.6;"><strong>Quant.</strong></span></div>
+                                                </td>
+                                                <td bgcolor="#0575b9" width="96">
+                                                    <div align="center"><span class="lead" style="margin: 0; padding: 0; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin-bottom: 10px; font-weight: normal; font-size: 14px; line-height: 1.6;"><strong>Tara</strong></span></div>
+                                                </td>
+                                                <td bgcolor="#0575b9" width="111">
+                                                    <div align="center"><strong><span style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 14px;">Bruto</span></strong></div>
+                                                </td>
+                                                <td bgcolor="#0575b9" width="97">
+                                                    <div align="center"><strong><span style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 14px;">Liqu&iacute;do</span></strong></div>
+                                                </td>
+                                                <td bgcolor="#0575b9" width="104">
+                                                    <div align="center"><strong><span style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 14px;">M&eacute;dio</span></strong></div>
+                                                </td>
+                                                <td bgcolor="#0575b9" width="146">
+                                                    <div align="center"><strong><span style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 14px;">Origem</span></strong></div>
+                                                </td>
+                                                <td bgcolor="#0575b9" width="127">
+                                                    <div align="center"><strong><span style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 14px;">Destino</span></strong></div>
+                                                </td>
+                                                <td bgcolor="#0575b9" width="173">
+                                                    <div align="center"><span class="lead" style="margin: 0; padding: 0; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin-bottom: 10px; font-weight: normal; font-size: 14px; line-height: 1.6;"><strong>Abertura</strong></span></div>
+                                                </td>
+                                                <td bgcolor="#0575b9" width="186">
+                                                    <div align="center"><span class="lead" style="margin: 0; padding: 0; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin-bottom: 10px; font-weight: normal; font-size: 14px; line-height: 1.6;"><strong>Fechamento</strong></span></div>
+                                                </td>
+                                            </tr>
+                                            <?
+                                            $dados_viagens = $this->GetRelatorio($categoria['subcategoria']);
+                                            if ($dados_viagens) {
+                                                foreach ($dados_viagens as $carga) {
+                                                    ?>
+                                                    <tr>
+                                                        <td align="center" bgcolor="#CCCCCC" height="23">
+                                                            <?= utf8_decode($carga['motorista']); ?>
+                                                        </td>
+                                                        <td align="center" bgcolor="#CCCCCC">
+                                                            <?= $carga['quantidade']; ?>
+                                                        </td>
+                                                        <td align="center" bgcolor="#CCCCCC">
+                                                            <?= number_format($carga['peso_tara'], 2, ".", ","); ?>
+                                                        </td>
+                                                        <td align="center" bgcolor="#CCCCCC">
+                                                            <?= number_format($carga['peso_bruto'], 2, ".", ","); ?>
+                                                        </td>
+                                                        <td align="center" bgcolor="#CCCCCC">
+                                                            <?= number_format(($carga['peso_bruto'] - $carga['peso_tara']), 2, ".", ","); ?>
+                                                        </td>
+                                                        <td align="center" bgcolor="#CCCCCC">
+                                                            <?= number_format((($carga['peso_bruto'] - $carga['peso_tara']) / $carga['quantidade']), 2, ".", ","); ?>
+                                                        </td>
+                                                        <td align="center" bgcolor="#CCCCCC">
+                                                            <?= utf8_decode($carga['nome_origem_carregamento']); ?>
+                                                        </td>
+                                                        <td align="center" bgcolor="#CCCCCC">
+                                                            <?= utf8_decode($carga['nome_destino_carregamento']); ?>
+                                                        </td>
+                                                        <td align="center" bgcolor="#CCCCCC">
+                                                            <?= $this->ConvercaoDate('-', $carga['data_abertura'], 10); ?>
+                                                        </td>
+                                                        <td align="center" bgcolor="#CCCCCC">
+                                                            <?= $this->ConvercaoDate('-', $carga['data_fechamento'], 10); ?>
+                                                        </td>
+                                                    </tr>
+                                                <? }
+                                            } ?>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+<? } ?>
+            </td>
+        </tr>
+        <tr style="height: 53px;">
+            <td style="width: 719px; height: 53px; background-color: #006a9e;" colspan="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </tbody>
+</table>

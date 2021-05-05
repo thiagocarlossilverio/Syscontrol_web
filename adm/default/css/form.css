@@ -1,0 +1,63 @@
+.files {
+    width: 99.5%;
+    height:250px;
+    overflow: auto;
+    float: left;
+    background-color: #fff;
+    background-image:url(/adm/default/img/wather-upload.png);
+    background-position: center center;
+    background-repeat:no-repeat;
+    display: block;
+    padding: 0px;
+    list-style: none;
+    border:1px solid #ccc;
+    margin:0px;
+    margin-top:5px;
+}
+
+.btn-upload {
+    color: #fff !important;
+    background-color: #3E8282 !important;
+    border-color: #3E8282 !important;
+    background-color: #3E8282;
+  
+}
+.fileinput-button {
+    position: relative;
+    overflow: hidden;
+}
+.fileinput-button input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    -ms-filter: 'alpha(opacity=0)';
+    direction: ltr;
+    cursor: pointer;
+}
+
+.files .quadro {
+    height: 80px;
+    width: 80px;
+    float: left;
+    margin:4px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border:1px solid #ccc;
+    background-image: url(/adm/default/img/ajax.gif);
+}
+#ui-datepicker-div{width: 305px!important;}
+.glyphicon {
+    position: relative;
+    top: 0px!important;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    float: right;
+   
+}

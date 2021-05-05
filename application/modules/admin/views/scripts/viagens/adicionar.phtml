@@ -1,0 +1,30 @@
+<?
+$this->headLink()->appendStylesheet($this->BaseUrl('adm/default/css/jquery-ui-timepicker.css'));
+$this->headLink()->appendStylesheet($this->BaseUrl('adm/default/css/FormCarga.css'));
+ $this->headScript()->appendFile($this->BaseUrl('adm/default/js/FormCarga.js'));
+ 
+header( 'Expires: Sat, 26 Jul 1997 05:00:00 GMT' );
+header( 'Last-Modified: ' . gmdate( 'D, d M Y H:i:s' ) . ' GMT' );
+header( 'Cache-Control: no-store, no-cache, must-revalidate' );
+header( 'Pragma: no-cache' );
+?>
+<META HTTP-EQUIV="Pragma" CONTENT="no cache">
+<div id="mensagem" title="Informação"></div>
+<div class="row">
+    <div class="col-md-10">
+        <!-- Form Elements -->
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Cadastro de Carga</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-10">
+                        <?php echo $this->form; ?>
+                    </div>                 
+                </div>
+            </div>
+        </div>
+        <!-- End Form Elements -->
+    </div>
+</div>

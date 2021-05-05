@@ -1,0 +1,186 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <!-- If you delete this meta tag, the ground will open and swallow you. -->
+        <meta name="viewport" content="width=device-width" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Dados de Acesso</title>
+       
+    </head>
+    <body bgcolor="#FFFFFF" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;-webkit-font-smoothing: antialiased;-webkit-text-size-adjust: none;width: 100% !important;height: 100%">
+        <p style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif"><img src="http://schoeler.com.br/imagens/logo.jpg" alt="Schoeler Suínos" width="99" height="84" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;max-width: 100%" /></p>
+        <p style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif">&nbsp;</p>
+        <p style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif"><span style="margin: 0;padding: 0;font-family: &quot;HelveticaNeue-Light&quot;, &quot;Helvetica Neue Light&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, &quot;Lucida Grande&quot;, sans-serif;line-height: 1.1;margin-bottom: 15px;color: #000;font-weight: 200;font-size: 20px">Ol&aacute; <?php echo utf8_decode($this->dados['usuario']); ?></span></p>
+        <p style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif">&nbsp;</p>
+        <p style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif">&nbsp;</p>
+<p style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif"><span class="lead" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6"><em>RELAT&Oacute;RIO SEMANAL DE CARGAS DOS DIAS
+              <strong>
+                  <?= date('d/m/Y', strtotime('-7 days')) ?>
+              </strong>&Aacute;
+              <strong>
+                  <?= date('d/m/Y H:i:s'); ?>
+          </strong>.</em></span></p>
+        <p style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif">&nbsp;</p>
+<table width="1468" height="58" border="0">
+            <tr style="color:#FFF;">
+                <td width="203" height="29" bgcolor="#0575b9"><div align="center"><span class="lead" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6"><strong>Motorista</strong></span></div></td>
+                <td width="74" bgcolor="#0575b9"><div align="center"><strong><span style="font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif; font-size: 14px">Tipo</span></strong></div></td>
+                <td width="81" bgcolor="#0575b9"><div align="center"><span class="lead" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6"><strong>Quantidade</strong></span></div></td>
+                <td width="96" bgcolor="#0575b9"><div align="center"><span class="lead" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6"><strong>Peso Tara</strong></span></div></td>
+                <td width="111" bgcolor="#0575b9"><div align="center"><strong><span style="font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif; font-size: 14px">Peso Bruto</span></strong></div></td>
+                <td width="97" bgcolor="#0575b9"><div align="center"><strong><span style="font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif; font-size: 14px">Peso Liqu&iacute;do</span></strong></div></td>
+                <td width="104" bgcolor="#0575b9"><div align="center"><strong><span style="font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif; font-size: 14px">Peso M&eacute;dio</span></strong></div></td>
+                <td width="146" bgcolor="#0575b9"><div align="center"><strong><span style="font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif; font-size: 14px">Fornecedor</span></strong></div></td>
+                <td width="127" bgcolor="#0575b9"><div align="center"><strong><span style="font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif; font-size: 14px">Destino</span></strong></div></td>
+                <td width="173" bgcolor="#0575b9"><div align="center"><span class="lead" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6"><strong>Data Entrada</strong></span></div></td>
+                <td width="186" bgcolor="#0575b9"><div align="center"><span class="lead" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6"><strong>Data Sa&iacute;da</strong></span></div></td>
+            </tr>
+            <?
+            $cargas = $this->dados['registros'];
+            foreach ($cargas as $carga) {
+                ?>
+                <tr>
+                    <td height="23" align="center" bgcolor="#CCCCCC"><span class="lead" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+    <?= utf8_decode($carga['motorista']); ?>
+                        </span></td>
+                    <td align="center" bgcolor="#CCCCCC"><span class="lead" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+    <?= utf8_decode($carga['nome_subcategoria']); ?>
+                        </span></td>
+
+                    <td align="center" bgcolor="#CCCCCC"><span class="lead" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+    <?= $carga['cabecas']; ?>
+                        </span></td>
+
+                    <td align="center" bgcolor="#CCCCCC"><span class="lead" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+    <?= number_format($carga['peso_tara'], 2, ".", ","); ?>
+                        </span></td>
+
+
+                    <td align="center" bgcolor="#CCCCCC"><span class="lead" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+    <?= number_format($carga['peso_bruto'], 2, ".", ","); ?>
+                        </span></td>
+
+                    <td align="center" bgcolor="#CCCCCC"><span class="lead" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+    <?= number_format($carga['peso_liquido'], 2, ".", ","); ?>
+                        </span></td>
+
+
+                    <td align="center" bgcolor="#CCCCCC"><span class="lead" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+    <?= number_format($carga['peso_medio'], 2, ".", ","); ?>
+                        </span></td>
+
+
+                    <td align="center" bgcolor="#CCCCCC"><span class="lead" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+    <?= ucfirst(utf8_decode($carga['fornecedor'])); ?>
+                        </span></td>
+
+
+                    <td align="center" bgcolor="#CCCCCC"><span class="lead" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+    <?= ucfirst(utf8_decode($carga['cliente'])); ?>
+                        </span></td>
+
+                    <td align="center" bgcolor="#CCCCCC"><span class="lead" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+    <?= $this->ConvercaoDate('-', $carga['data_entrada'], 10); ?>
+                        </span></td>
+
+                    <td align="center" bgcolor="#CCCCCC"><span class="lead" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6">
+    <?= $this->ConvercaoDate('-', $carga['data_saida'], 10); ?>
+                        </span></td>
+
+                </tr>
+<? } ?>
+            <tr>
+                <td height="23" colspan="11" align="center" ><p>&nbsp;</p>
+                <p>&nbsp;</p></td>
+            </tr>
+            <?
+            $cabecas = $this->Total($cargas, 'cabecas');
+            $peso_liquido = $this->Total($cargas, 'peso_liquido');
+            $peso_medio = ($peso_liquido / $cabecas);
+            ?>
+            <tr>
+                <td height="23" colspan="11" align="center" bgcolor="#0575b9" style="color:#FFF;"><strong>TOTAL DAS CARGAS:</strong></td>
+            </tr>
+            <tr style="color:#FFF;">
+                <td height="23" align="center" bgcolor="#0575b9">&nbsp;</td>
+                <td align="center" bgcolor="#0575b9">&nbsp;</td>
+                <td height="23" align="center" bgcolor="#0575b9">&nbsp;</td>
+                <td height="23" align="center" bgcolor="#0575b9">&nbsp;</td>
+                <td height="23" align="center" bgcolor="#0575b9"><strong>Quant. Total:</strong></td>
+                <td height="23" align="center" bgcolor="#0575b9"><strong>Peso Total:</strong></td>
+                <td height="23" align="center" bgcolor="#0575b9"><strong>Peso M&eacute;dio:</strong></td>
+                <td height="23" align="center" bgcolor="#0575b9">&nbsp;</td>
+                <td height="23" align="center" bgcolor="#0575b9">&nbsp;</td>
+                <td height="23" align="center" bgcolor="#0575b9">&nbsp;</td>
+                <td height="23" align="center" bgcolor="#0575b9">&nbsp;</td>
+            </tr>
+            <tr>
+                <td height="23" align="center" bgcolor="#CCCCCC">&nbsp;</td>
+                <td align="center" bgcolor="#CCCCCC">&nbsp;</td>
+                <td height="23" align="center" bgcolor="#CCCCCC">&nbsp;</td>
+                <td height="23" align="center" bgcolor="#CCCCCC">&nbsp;</td>
+                <td height="23" align="center" bgcolor="#CCCCCC"><?= $cabecas; ?></td>
+                <td height="23" align="center" bgcolor="#CCCCCC"><?= number_format($peso_liquido, 2, ".", ","); ?></td>
+                <td height="23" align="center" bgcolor="#CCCCCC"><?= number_format($peso_medio, 2, ".", ","); ?></td>
+                <td height="23" align="center" bgcolor="#CCCCCC">&nbsp;</td>
+                <td height="23" align="center" bgcolor="#CCCCCC">&nbsp;</td>
+                <td height="23" align="center" bgcolor="#CCCCCC">&nbsp;</td>
+                <td height="23" align="center" bgcolor="#CCCCCC">&nbsp;</td>
+            </tr>
+            <tr>
+                <td height="23" colspan="11" align="center"><p>&nbsp;</p></td>
+  </tr>
+            <tr>
+                <td height="23" colspan="11" align="center" bgcolor="#0575b9" style="color:#FFF;"> <strong> PESO LIQU&Iacute;DO TOTAL POR TIPO:</strong></td>
+  </tr>
+            
+            <tr>
+                <td height="23" align="center">&nbsp;</td>
+                <td align="center">&nbsp;</td>
+                <td height="23" colspan="7" align="center">
+                <p><img src="<?= $this->dados['grafico_peso_liquido']; ?>"/>                </p>
+                <p>&nbsp;</p></td>
+                <td height="23" align="center">&nbsp;</td>
+                <td height="23" align="center">&nbsp;</td>
+			</tr>
+            
+            <tr>
+                <td height="23" colspan="11" align="center" bgcolor="#0575b9" style="color:#FFF;"> <strong>TOTAL DE CARGAS POR TIPO:</strong></td>
+  			</tr>
+            
+            <tr>
+                <td height="23" align="center">&nbsp;</td>
+                <td align="center">&nbsp;</td>
+                <td height="23" colspan="7" align="center">
+                <p><img src="<?= $this->dados['grafico_total']; ?>"/>                </p>
+                <p>&nbsp;</p></td>
+                <td height="23" align="center">&nbsp;</td>
+                <td height="23" align="center">&nbsp;</td>
+			</tr>
+            
+            <tr>
+                <td height="23" colspan="11" align="center" bgcolor="#0575b9" style="color:#FFF;"> <strong> PESO M&Eacute;DIO TOTAL POR TIPO:</strong></td>
+  			</tr>
+            
+            <tr>
+                <td height="23" align="center">&nbsp;</td>
+                <td align="center">&nbsp;</td>
+                <td height="23" colspan="7" align="center">
+                <img src="<?= $this->dados['grafico_peso_medio']; ?>"/>                </td>
+                <td height="23" align="center">&nbsp;</td>
+                <td height="23" align="center">&nbsp;</td>
+			</tr>
+        </table>
+<p style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif">&nbsp;</p>
+        <p style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif">&nbsp;</p>
+        <p style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif">
+            
+</p>
+        <p style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif">&nbsp;</p>
+        <p style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif">&nbsp;</p>
+    <p style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif">&nbsp;</p>
+        <p style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif">&nbsp;</p>
+        <p style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif">&nbsp;</p>
+        <p style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif">&nbsp;</p>
+        <p style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif"><em><strong>Caso tenha alguma duvida contate o departamento de TI;</strong></em></p>
+    </body>
+</html>
