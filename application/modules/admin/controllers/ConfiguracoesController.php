@@ -72,6 +72,39 @@ class Admin_ConfiguracoesController extends Zend_Controller_Action {
 
         $this->view->form = $form->populate($configuracao);
     }
+    
+    public function balancaAction() {
+        $form = new TCS_Form_FormBalanca();
+
+        // Path ao arquivo de configuração
+        $filename = APPLICATION_PATH . '/configs/balanca.ini';
+
+        // Carrega o arquivo de configuração
+        $ConfBalanca = new Zend_Config_Ini($filename, "producao", TRUE);
+
+        $configuracao = $ConfBalanca->toArray();
+
+        $data = $this->_request->getPost();
+        if ($this->_request->isPost() && $form->isValid($data)) {
+
+            // Muda o valor
+            $ConfBalanca->IP = $this->_request->getParam("IP");
+            $ConfBalanca->PORTA = $this->_request->getParam("PORTA");
+    
+            // Prepara o arquivo para gravação
+            $writer = new Zend_Config_Writer_Ini(array('config' => $ConfBalanca, 'filename' => $filename));
+
+            // Faz a alteração no arquivo
+            $writer->write();
+
+            $this->_helper->FlashMessenger->addMessage(array('sucesso' => 'As configurações foram salvas com sucesso!'));
+
+            // Redireciona
+            $this->_redirect("/admin/configuracoes/balanca/");
+        }
+
+        $this->view->form = $form->populate($configuracao);
+    }
 
     public function sistemaAction() {
         $form = new TCS_Form_FormSistema();

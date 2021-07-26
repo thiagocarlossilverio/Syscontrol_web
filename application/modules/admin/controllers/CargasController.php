@@ -205,21 +205,9 @@ class Admin_CargasController extends Zend_Controller_Action {
     }
 
     public function ajaxPesoAction() {
-        ini_set('display_errors', 0);
-        $fp = fsockopen("10.1.1.2", 23);
-        if (!$fp) {
-            print('erro');
-        } else {
-            // $data = fread($fp, 9);
-            //$result = substr($data, 2, 7);
-            $data = fread($fp, 10);
-            $result = substr(trim($data), 4, 12);
-            fclose($fp);
-            $result = number_format(trim($result), 0, '', '.');
-            print_r($result);
-        }
-
-        die;
+        $peso = Zend_Controller_Action_HelperBroker::getStaticHelper('CapturaPeso')->Capturar(false);
+        print_r($peso);
+        exit;
     }
 
     public function adicionarAction() {
@@ -394,41 +382,6 @@ class Admin_CargasController extends Zend_Controller_Action {
         $nota = $this->_request->getParam('nota');
         $result = $Model->VerificaNota($caminhao, $nota);
         die($result);
-    }
-
-    public function testeAction() {
-        $ModelBackup = new Admin_Model_CargasBkp();
-        $ModelCargas = new Admin_Model_Cargas();
-        $result = $ModelBackup->Lista();
-
-
-        foreach ($result as $row) {
-            $data = array();
-            $data['id'] = $row['id'];
-            $data['caminhao'] = $row['caminhao'];
-            $data['motorista'] = $row['motorista'];
-            $data['cliente'] = $row['cliente'];
-            $data['fornecedor'] = $row['fornecedor'];
-            $data['cabecas'] = $row['cabecas'];
-            $data['nota_fiscal'] = $row['nota_fiscal'];
-            $data['descricao'] = $row['descricao'];
-            $data['peso_tara'] = $row['peso_tara'];
-            $data['peso_bruto'] = $row['peso_bruto'];
-            $data['peso_nota'] = $row['peso_nota'];
-            $data['peso_liquido'] = $row['peso_liquido'];
-            $data['peso_medio'] = $row['peso_medio'];
-            $data['percentual_quebra'] = $row['percentual_quebra'];
-            $data['data_entrada'] = $row['data_entrada'];
-            $data['data_saida'] = $row['data_saida'];
-            $data['user'] = $row['user'];
-            $data['categoria'] = $row['categoria'];
-            $data['subcategoria'] = $row['subcategoria'];
-            $data['excluido'] = $row['excluido'];
-            $data['envia_email'] = $row['envia_email'];
-            $ModelCargas->backup($data);
-        }
-        Zend_Debug::dump($result);
-        die;
     }
 
 }

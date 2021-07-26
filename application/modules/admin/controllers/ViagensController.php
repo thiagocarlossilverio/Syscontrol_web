@@ -72,6 +72,25 @@ class Admin_ViagensController extends Zend_Controller_Action {
 
         $this->_redirect('admin/viagens');
     }
+    
+     public function ticketAction() {
+        $this->_helper->layout()->disableLayout();
+        $id = (int) $this->_request->getParam('id');
+        $Model = new Admin_Model_Viagens();
+        $auth = Zend_Auth::getInstance();
+          
+        $result = $Model->GetTicket($id);
+        $result['dados_usuario'] = $auth->getIdentity();
+      // Zend_Debug::dump($result);die;
+        if (!$result) {
+            //Adiciona a mensagem de sucesso
+            $this->_helper->FlashMessenger->addMessage(array('erro' => 'Ação não Permitida!'));
+            $this->_helper->redirector('index');
+        }
+
+        //Zend_Debug::dump($result);die;
+        $this->view->dados = $result;
+    }
 
     public function visualizarAction() {
         $param = (int) $this->_request->getParam('param');

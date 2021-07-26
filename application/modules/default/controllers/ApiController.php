@@ -162,21 +162,12 @@ class ApiController extends Zend_Controller_Action {
     }
 
     /* Capturo a peso da balança rodoviaria */
-
     public function capturarAction() {
         $this->_helper->layout->disableLayout();
-        ini_set('display_errors', 0);
-        $fp = fsockopen("10.1.1.2", 23);
-        if (!$fp) {
-            print('erro');
-        } else {
-            $data = fread($fp, 10);
-            $result = substr(trim($data), 4, 12);
-            fclose($fp);
-            $result = number_format(trim($result), 0, '', '.');
-            print_r($result);
-        }
-        die;
+        $peso = Zend_Controller_Action_HelperBroker::getStaticHelper('CapturaPeso')->Capturar(false);
+        print_r($peso);
+        exit;
+        
     }
 
     /* Insiro na Base dados mysql */

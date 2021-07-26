@@ -52,7 +52,7 @@
                                 <table border="0" class="table">
                                     <thead>
                                         <tr>
-                                            <th width="14%" height="115"><img src="<?= $this->BaseUrl('adm/default/img/logo.jpg'); ?>" class="img-rounded" alt="Schoeler Suínos" width="140" height="82"></th>
+                                            <th width="14%" height="115"><img src="<?= $this->BaseUrl('adm/default/img/logo.jpg'); ?>" class="img-rounded" alt="Schoeler Agro" width="140" height="82"></th>
                                             <th width="29%">
                                                 <p>&nbsp;</p>
                                                 <p>&nbsp;</p>
@@ -63,7 +63,7 @@
                                                 <div style="font-size:14px;" align="right">Data e Hora Pesagem:
                                                     <?= $this->dados['data_entrada']; ?>
                                                 </div>
-                                                <div style="font-size:14px;" align="right">Data e Hora Impressão:
+                                                <div style="font-size:14px;" align="right">Data e Hora Emissão:
                                                     <?= date('d/m/Y H:i:s'); ?>
                                                 </div></th>
                                         </tr>
@@ -92,94 +92,95 @@
                                                     <?= number_format($this->dados['peso_bruto'], 2, ".", ","); ?>
                                                 </div></td>
                                             <td colspan="3"><div align="left"><strong>Transportador:</strong>
-                                                    <?= $this->dados['proprietario']; ?>
+                                                    <? if ($this->dados['proprio'] == 1) {
+                                                        echo 'Schoeler Agro';
+                                                    } else {
+                                                        echo $this->dados['proprietario'];
+                                                    } ?>
                                                 </div></td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"><div align="left"><strong>Peso Tara:</strong>
-                                                    <?= number_format($this->dados['peso_tara'], 2, ".", ","); ?>
+<?= number_format($this->dados['peso_tara'], 2, ".", ","); ?>
                                                 </div></td>
-                                            <td colspan="3"><div align="left"><strong>Fornecedor:</strong>
-                                                    <?= $this->dados['fornecedor']; ?>
+                                            <td colspan="3"><div align="left"><strong>Origem:</strong>
+<?= $this->dados['fornecedor']; ?>
                                                 </div></td>
                                         </tr>
 
                                         <tr>
                                             <td colspan="2"><div align="left"><strong>Peso Liquído:</strong>
-                                                    <?= number_format($this->dados['peso_liquido'], 2, ".", ","); ?>
+<?= number_format(($this->dados['peso_bruto'] - $this->dados['peso_tara']), 2, ".", ","); ?>
                                                 </div></td>
                                             <td colspan="3"><div align="left"><strong>Destino:</strong>
-                                                    <?= $this->dados['cliente']; ?>
-                                                </div></td>
+<?= $this->dados['cliente']; ?>
+                                                </div>
+                                            </td>
                                         </tr>
 
-                                        <? if (!empty($this->dados['peso_medio']) && $this->dados['peso_medio'] > 0 && !is_null($this->dados['peso_medio'])) { ?>
-                                            <tr>
-                                                <td colspan="2"><div align="left"><strong>Peso Médio:</strong> <? echo number_format($this->dados['peso_medio'], 2, ".", ",") . ' - KG / ' . $this->dados['cabecas'] . ' Cabeças'; ?> </div></td>
-                                                <td width="32%">&nbsp;</td>
-                                                <td width="2%">&nbsp;</td>
-                                                <td width="23%">&nbsp;</td>
-                                            </tr>
-                                        <? } ?>
 
-                                        <? if (!empty($this->dados['local_pesagem'])) { ?>
-                                            <tr>
-                                                <td colspan="3">
-                                                    <div align="left"> <strong>Local Pesagem:</strong>
-                                                        <?= $this->dados['local_pesagem']; ?>
-                                                    </div>
-                                                </td>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                            </tr>
-                                        <? } ?>
-
-                                        <? if (!empty($this->dados['descricao'])) { ?>
-                                            <tr>
-                                                <td colspan="3">
-                                                    <div align="left"> <strong>Descrição:</strong>
-                                                        <?= nl2br($this->dados['descricao']); ?>
-                                                    </div>
-                                                </td>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                            </tr>
-                                        <? } ?>
                                         <tr>
+                                            <td colspan="2"><div align="left"><strong>Peso Médio:</strong> <? echo number_format((($this->dados['peso_bruto'] - $this->dados['peso_tara']) / $this->dados['quantidade']), 2, ".", ",") . ' - KG / ' . $this->dados['quantidade'] . ' Cabeças'; ?> </div></td>
+                                            <td width="32%">&nbsp;</td>
+                                            <td width="2%">&nbsp;</td>
+                                            <td width="23%">&nbsp;</td>
+                                        </tr>
+
+
+                                                    <? if (!empty($this->dados['local_abertura'])) { ?>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div align="left"> <strong>Local Abertura:</strong>
+                                                        <?= $this->dados['local_abertura']; ?>
+                                                    </div>
+                                                </td>
+                                                <td colspan="2">
+                                                    <div align="left"> <strong>Local Fechamento:</strong>
+                                            <?= $this->dados['local_fechamento']; ?>
+                                                    </div>
+                                                </td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+<? } ?>
+
+                                                    <? if (!empty($this->dados['observacao'])) { ?>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <div align="left"> <strong>Observaçao:</strong>
+    <?= nl2br($this->dados['observacao']); ?>
+                                                    </div>
+                                                </td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+<? } ?>
+                                           
+                                        <tr>
+                                            
                                             <td colspan="2"><div align="left"> <strong>Nota Fiscal:</strong>
-                                                    <?= $this->dados['nota_fiscal']; ?>
+<?= $this->dados['numero_nota']; ?>
                                                 </div>
                                                 <p>&nbsp;</p>
-                                                <? if (!empty($this->dados['percentual_quebra'])) { ?>
-                                                    <p style="font-size:14px;"><em>A porcentagem de indice de quebra, está acima de 0.2%</em></p>
-                                                <? } ?>
+
                                             </td>
                                             <td rowspan="2"><p>&nbsp;</p>
                                                 <p>&nbsp;</p>
-                                                <p>&nbsp;</p>
-                                                <p>&nbsp;</p>
+                                              
                                                 <div align="right" id="left-emitente">
                                                     <div align="center">
                                                         <p><strong>Emitente:</strong>
-                                                            <?
-                                                            if (!empty($this->dados['user'])) {
-                                                                echo $this->dados['user'];
-                                                            } else {
-                                                                echo $this->dados['motorista'];
-                                                            }
-                                                            ?>
+                                                            <?= $this->dados['dados_usuario']->nome; ?>
                                                         </p>
-                                                        <? if (!empty($this->dados['cpf_user'])) { ?>
+                                                        <? if (!empty($this->dados['dados_usuario']->cpf)) { ?>
                                                             <p><strong>CPF:</strong>
-                                                                <?= $this->dados['cpf_user']; ?>
+    <?= $this->dados['dados_usuario']->cpf; ?>
                                                             </p>
-                                                        <? } ?>
+<? } ?>
                                                     </div>
                                                 </div></td>
                                             <td rowspan="2">&nbsp;</td>
                                             <td rowspan="2"><p>&nbsp;</p>
-                                                <p>&nbsp;</p>
-                                                <p>&nbsp;</p>
+                                                
                                                 <p>&nbsp;</p>
                                                 <div align="right" id="righ-motorista">
                                                     <div align="center">
@@ -188,9 +189,9 @@
                                                         </p>
                                                         <? if (!empty($this->dados['cpf_motorista'])) { ?>
                                                             <p><strong>CPF:</strong>
-                                                                <?= $this->dados['cpf_motorista']; ?>
+    <?= $this->dados['cpf_motorista']; ?>
                                                             </p>
-                                                        <? } ?>
+<? } ?>
                                                     </div>
                                                 </div></td>
                                         </tr>
